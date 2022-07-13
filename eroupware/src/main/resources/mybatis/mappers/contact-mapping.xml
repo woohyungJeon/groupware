@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.contactMapper">
+	<select id="contactMemberList" resultType="contactDTO" parameterType="com.ezenit.eroupware.contact.bean.SearchCriteria">
+		select * from 
+		(select rownum rn, tt.* from
+		(select e.id, e.name, e.mobile, e.addname, e.email, e.image, e.birth, d.deptname, r.rankname 
+		from ew_member e, ew_department d, ew_rank r where e.deptno = d.deptno and e.rankno = r.rankno and e.authority != 'Y' 
+		order by e.rankno asc, e.deptno asc) tt) 
+		where 1=1 <include refid="search"></include> and <![CDATA[rn>=#{rowStart} and rn<=#{rowEnd}]]> 
+		</select>
+	
+	<!-- 연락처 개수 -->
+	<select id="contactListCount" resultType="int" parameterType="com.ezenit.eroupware.contact.bean.SearchCriteria">
+		select count(id) from ew_member where 1=1 <include refid="search"></include>
+	</select>	
+			<!-- 검색기능 --> 
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 'n'.toString()">AND NAME LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'e'.toString()">AND EMAIL LIKE '%' || #{keyword} || '%'</if>			
+			<if test="searchType == 'm'.toString()">AND MOBILE LIKE '%' || #{keyword} || '%'</if>
+		</if>
+	</sql>
+	
+	<!-- 사원연락처 상세보기 -->
+	<select id="contactDetail" parameterType="String" resultType="contactDTO">
+		select e.id, e.name, e.mobile, e.addname, e.email, e.image, e.birth, d.deptname, r.rankname , TO_CHAR(e.hiredate, 'YYYY-MM-DD') AS hiredate
+		from ew_member e, ew_department d, ew_rank r where e.deptno = d.deptno and e.rankno = r.rankno
+		and e.id = #{id}
+	</select>
+	
+</mapper>

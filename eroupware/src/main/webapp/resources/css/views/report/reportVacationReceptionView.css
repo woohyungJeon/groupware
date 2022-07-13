@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+#wrap table {
+	width:1200px;
+	height:600px;
+	margin: 20px auto;
+}
+#wrap table td {
+	border: 2px solid #072a40;
+	border-collapse: collapse;
+}
+.td_main {
+	font-wight: bold;
+	font-size: 25px;
+	height: 25px;
+	text-align: center;
+	vertical-align: middle;
+}
+.td_line {
+	height: 25px;
+	text-align: center;
+}
+.tr_rank {
+	height: 25px;
+	text-align: center;
+}
+.td_rank {
+	width: 150px;
+	text-align: center;
+}
+.tr_sign {
+	height: 50px;
+}
+.td_sign {
+	height: 50px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 18px;
+	font-weight: bold;
+}
+.tr_inform {
+	height: 50px;
+}
+.td_inform1 {
+	width: 150px;
+	text-align: center;
+	vertical-align: middle;
+}
+.td_inform2 {
+	width: 150px;
+	text-align: center;
+	vertical-align: middle;
+}
+.tr_kinds{
+	height: 25px;
+}
+.td_kinds1{
+	text-align: center;
+	vertical-align: middle;
+}
+.td_kinds2{
+	vertical-align: middle;
+}
+.tr_date{
+	height: 50px;
+}
+.td_date1{
+	text-align: center;
+	vertical-align: middle;
+}
+.td_date2{
+	vertical-align: middle;
+}
+.tr_title {
+	height: 50px;
+}
+.td_title1 {
+	width:150px;
+	text-align:center;
+	vertical-align: middle;
+}
+.td_title2 {
+	vertical-align: middle;
+}
+.tr_content {
+	height: 233px;
+}
+.td_content1 {
+	text-align: center;
+	vertical-align: middle;
+}
+.td_content1 {
+	
+}
+.tr_aso{
+	height: 50px;
+}
+.td_aso1{
+	text-align: center;
+	vertical-align: middle;
+}
+.td_aso2{
+	
+}
+.tr_btn {
+	text-align: center;
+	height: 25px;
+}
+.titleTd {
+	font-weight: bold;
+}
+
+.outputTd {
+	padding-left: 5px;
+}
+.td_btn {
+    height: 50px;
+    vertical-align: middle;
+}
+
+#wrap table tr td input[type=button] {
+    height: 30px;
+    cursor: pointer;
+    overflow: hidden;
+    border: 1.5px solid rgb(113 113 113 / 64%);
+    border-radius: 6px;
+    background: transparent;
+    width: 80px;
+}

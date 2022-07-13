@@ -1,0 +1,372 @@
+@charset "UTF-8";
+
+.todoMainArea {
+	width: 100%;
+	/* height: 100%; */
+}
+
+.todoCardInfo {
+	margin-top: 20px;
+    display: inline-block;
+    color: #444444;
+    font-weight: 500;
+    vertical-align: bottom;
+    /* margin-left: 10px; */
+    font-size: 15px;
+}
+
+.newTodoModal {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.7);
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
+}
+
+.newTodoModal .inputArea {
+	/* width: 720px; */
+	/* height: 500px; */
+	/* background: white; */
+	margin: 11% auto;
+	width: 510px;
+	min-height: 284px;
+	position: relative;
+}
+
+.newTodoModal .modalCloseBtn {
+	font-size: 25px;
+    color: #444444;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+}
+
+.newTodoModal .inputTodoArea {
+	background: white;
+	width: 510px;
+	min-height: 284px;
+	float: left;
+	padding: 30px;
+	box-sizing: border-box;
+	text-align: center;
+	border-radius: 3px;
+	/* transition: all 0.5s ease-in-out; */
+	position: relative;
+}
+
+.inputTodoTitle {
+	font-size: 20px;
+	font-weight: bold;
+	/* float: left; */
+}
+
+/* .detailTitle {
+	float: left;
+	margin-top: 10px;
+	font-size: 14px;
+	margin-left: 2px;
+}
+
+.detailTitle:last-child {
+	margin-top: 10px;
+} */
+.inputTodoArea .inputText {
+	width: 442px;
+	height: 40px;
+	/* margin: 2px 5px 0 0; */
+	border: 1px solid #818181;
+	border-radius: 3px;
+	margin: 0 auto;
+	font-size: 16px;
+	margin-top: 15px;
+	padding: 0px 7px;
+	box-sizing: border-box;
+}
+
+.inputTodoArea textarea.inputText {
+	height: 60px;
+	resize: none;
+}
+
+.inputTodoSubmitBtn {
+	margin-top: 25px;
+	width: 150px;
+	height: 40px;
+	background: #1873ad;
+	color: white;
+	border: none;
+	cursor: pointer;
+	border-radius: 3px;
+}
+
+/* 개인/팀 라디오 버튼 */
+/* .switch-field {
+	display: flex;
+	overflow: hidden;
+	margin-left: 2px;
+}
+
+.switch-field label {
+	background-color: #e4e4e4;
+	color: rgba(0, 0, 0, 0.6);
+	font-size: 14px;
+	line-height: 1;
+	text-align: center;
+	padding: 5px 10px;
+	margin-right: -1px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 0px 1px rgb(0 0 0/ 30%), 0 1px rgb(255 255 255/ 10%);
+	transition: all 0.1s ease-in-out;
+	width: 40px;
+	margin: 10px 2px 0 0;
+}
+
+.switch-field input {
+	position: absolute !important;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	width: 1px;
+	border: 0;
+	overflow: hidden;
+}
+
+.switch-field label:hover {
+	cursor: pointer;
+}
+
+.switch-field input:checked+label {
+	background-color: #1873ad;
+	box-shadow: none;
+	color: white;
+}
+
+.switch-field label:first-of-type {
+	border-radius: 3px 0 0 3px;
+}
+
+.switch-field label:last-of-type {
+	border-radius: 0 3px 3px 0;
+} */
+
+/* 투두 리스트 영역 */
+.todoMainArea * {
+	box-sizing: border-box;
+}
+
+.todoListArea {
+	/* width: 1360px; */
+	min-height: 600px;
+	box-sizing: border-box;
+	/* margin-top: 20px; */
+}
+
+.todoCardArea {
+	width: 100%;
+	height: 100%;
+}
+
+.todoPlaceholder {
+	background: red;
+}
+
+.todoCardArea .todoCard {
+	width: 250px;
+	height: 130px;
+	background: #f1f1f1;
+	float: left;
+	border-radius: 3px;
+	margin-right: 20px;
+	margin-top: 20px;
+	padding: 5px 10px 5px 10px;
+	box-shadow: 0px 1px 3px #a3a3a3;
+	position: relative;
+	cursor: pointer;
+}
+
+.todoCardArea .todoCard.red {
+	border-top: 5px solid #e55a86;
+}
+
+.todoCardArea .todoCard.blue {
+	border-top: 5px solid #5daedf;
+}
+
+.todoCardArea .todoCard.green {
+	border-top: 5px solid #22edc0;
+}
+
+.todoCardArea .todoCard.orange {
+	border-top: 5px solid #ffc94b;
+}
+
+.todoCardArea .todoCard.purple {
+	border-top: 5px solid #8669db;
+}
+
+.todoCardArea .todoCard.gray {
+	border-top: 5px solid #d9d9d9;
+}
+
+.todoCard .todoCardTitle {
+	font-weight: 500;
+	margin-left: 2px;
+}
+
+.todoCard .todoCardDate {
+	float: right;
+	margin-right: 2px;
+}
+
+.todoCard .todoCardContent {
+	display: block;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	height: 75px;
+	width: 230px;
+	background: white;
+	border-radius: 3px;
+	font-size: 13px;
+	line-height: 17px;
+	overflow-y: auto;
+	border: 1px solid #bfbfbf;
+	margin-top: 2px;
+	line-height: 15px;
+	padding: 0px 2px;
+}
+
+.todoCardBtnArea {
+	float: right;
+	display: none;
+}
+
+.todoCard:hover .todoCardBtnArea {
+	display: block;
+	position: absolute;
+	right: 10px;
+	bottom: 1px;
+}
+
+.todoCardColorBtn {
+	display: none;
+}
+
+.todoCard:hover .todoCardColorBtn {
+	display: block;
+	position: absolute;
+	bottom: 3px;
+	left: 5px;
+}
+
+.todoCardTa {
+	display: none;
+	width: 230px;
+	resize: none;
+	border: none;
+	height: 70px;
+	border-radius: 3px;
+	font-size: 13px;
+	line-height: 17px;
+}
+
+.todoCardTa:active {
+	border: none;
+}
+
+.todoCardBtn {
+	border: none;
+	background: none;
+	color: #444444;
+	font-size: 11px;
+	padding: 0;
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+.todoCardCompleteBtn {
+	display: none;
+}
+
+/* 라벨 변경 레이어 팝업 */
+.todoCardColorPopup {
+	position: absolute;
+	right: -58px;
+	bottom: 5px;
+	width: 57px;
+	height: 120px;
+	background: white;
+	z-index: 100;
+	border: 1px solid #d9d9d9;
+	border-radius: 3px;
+	display: none;
+	padding: 0px 2px;
+}
+
+.todoCardColorPopup span {
+	display: block;
+	width: 50px;
+	height: 15px;
+	background: red;
+	margin-top: 4px;
+	border-radius: 3px;
+}
+
+.todoCardColorPopup span.red {
+	background: #e55a86;
+}
+
+.todoCardColorPopup span.blue {
+	background: #5daedf;
+}
+
+.todoCardColorPopup span.green {
+	background: #22edc0;
+}
+
+.todoCardColorPopup span.orange {
+	background: #ffc94b;
+}
+
+.todoCardColorPopup span.purple {
+	background: #8669db;
+}
+
+.todoCardColorPopup span.gray {
+	background: #d9d9d9;
+}
+
+.newTodoCard.newTodoBtn span {
+	position: absolute;
+    top: 40px;
+    left: 105px;
+    font-size: 60px;
+    color: #9b9b9b;
+}
+
+.newTodoCard.newTodoBtn {
+	width: 250px;
+	height: 130px;
+	background: #f1f1f1;
+	float: left;
+	border-radius: 3px;
+	margin-right: 20px;
+	margin-top: 20px;
+	padding: 5px 10px 5px 10px;
+	box-shadow: 0px 1px 3px black;
+	position: relative;
+	cursor: pointer;
+	
+	
+	
+	
+    box-shadow: none;
+    border: 3px dotted #9b9b9b;
+    background: white;
+    border-radius: 10px;
+}
+
+.newTodoCard.newTodoBtn:hover {
+	transform:scale(1.05, 1.05);
+}

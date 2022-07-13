@@ -1,0 +1,210 @@
+@charset "UTF-8";
+
+/* body {
+	background: #27272e !important;
+} */
+#wrap {
+	border: 0px;
+	/* min-height: 900px;
+    min-width: 1000px; */
+	width: 100%;
+	min-height: 100vh;
+	overflow-x: hidden;
+	/* overflow-y: hidden; */
+	padding: 0 !important;
+	margin: 0 !important;
+	background-image: url(../../../img/loginBackground-image3.jpg);
+	/* z-index: 10000; */
+	background-size: 100% 100%;
+	background-attachment: fixed;
+}
+
+#loginFormWrap {
+	width: 100% !important;
+	margin: 50px 0 0 0 !important;
+	padding: 0 !important;
+	/* height: 100vh !important; */
+	overflow-y: hidden;
+	overflow-x: hidden;
+	/* background-image: url("../../../img/loginBackground-image3.jpg"); */
+	/* background-size: 100% 100%; */
+	/* overflow-y: hidden; */
+	/* background-attachment: fixed; */
+	/* overflow-y: scroll; */
+}
+
+.loginFormArea {
+	width: 600px;
+	height: 400px;
+	background: rgba(7, 42, 64, 0.8);
+	margin: 12% auto;
+	border-radius: 3px;
+	position: relative;
+	text-align: center;
+}
+
+.loginFormArea h3 {
+	color: white;
+	font-size: 40px;
+	margin-top: 60px;
+	display: inline-block;
+	font-weight: bold;
+}
+
+.loginFormArea .inputLabel {
+	font-size: 15px;
+	color: white;
+	position: absolute;
+	left: 162px;
+}
+
+.loginFormArea .idLabel {
+	top: 120px;
+}
+
+.loginFormArea .pwdLabel {
+	top: 185px;
+}
+
+.loginFormArea .inputText {
+	position: absolute;
+	left: 160px;
+	width: 280px;
+	padding: 5px;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+.loginFormArea .inputId {
+	top: 145px;
+}
+
+.loginFormArea .inputPwd {
+	top: 210px;
+}
+
+.loginButton {
+	position: absolute;
+	left: 161px;
+	bottom: 105px;
+	width: 278px;
+	height: 35px;
+	box-sizing: border-box;
+	border-radius: 3px;
+	border: none;
+	background: #2482bd;
+	color: white;
+	font-size: 19px;
+	line-height: 5%;
+	cursor: pointer;
+}
+
+.loginFormArea a {
+	color: white;
+	text-decoration: none;
+	position: absolute;
+	bottom: 80px;
+	right: 165px;
+}
+
+/* 우형이꺼 */
+
+/* #login .container #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 600px;
+  height: 320px;
+  border: 1px solid #9C9C9C;
+  background-color: #322727;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+
+body{
+	font-family: 'Poppins', sans-serif;
+	font-weight: 300;
+	font-size: 15px;
+	line-height: 1.7;
+	color: #c4c3ca;
+	background-color: #1f2029;
+	overflow-x: hidden;
+}
+
+a {
+	cursor: pointer;
+  transition: all 200ms linear;
+}
+a:hover {
+	text-decoration: none;
+}
+.link {
+  color: #c4c3ca;
+}
+.link:hover {
+  color: #ffeba7;
+}
+p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.7;
+}
+h4 {
+  font-weight: 600;
+}
+h6 span{
+  padding: 0 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.section{
+  position: relative;
+  width: 100%;
+  display: block;
+}
+.full-height{
+  min-height: 100vh;
+}
+[type="checkbox"]:checked,
+[type="checkbox"]:not(:checked){
+  position: absolute;
+  left: -9999px;
+}
+.checkbox:checked + label,
+.checkbox:not(:checked) + label{
+  position: relative;
+  display: block;
+  text-align: center;
+  width: 60px;
+  height: 16px;
+  border-radius: 8px;
+  padding: 0;
+  margin: 10px auto;
+  cursor: pointer;
+  background-color: #ffeba7;
+}
+.checkbox:checked + label:before,
+.checkbox:not(:checked) + label:before{
+  position: absolute;
+  display: block;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #ffeba7;
+  background-color: #102770;
+  font-family: 'unicons';
+  content: '\eb4f';
+  z-index: 20;
+  top: -10px;
+  left: -10px;
+  line-height: 36px;
+  text-align: center;
+  font-size: 24px;
+  transition: all 0.5s ease;
+}
+.checkbox:checked + label:before {
+  transform: translateX(44px) rotate(-270deg);
+}
+ */

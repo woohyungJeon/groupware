@@ -1,0 +1,137 @@
+@charset "UTF-8";
+
+#wrap {
+	margin-left: 0 !important;
+}
+
+.ck.ck-editor {
+	max-width: 1100px;
+	/* padding: 100px; */
+}
+
+.ck-editor__editable {
+	min-height: 365px;
+}
+
+.div_wrap {
+	width: 1000px;
+	min-height: 210px;
+	padding: 0px 50px 50px 50px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.table_area {
+	min-height: 460px;
+	width: 100%;
+}
+
+.table_css {
+	width: 100%;
+	/* padding: 10px; */
+	height: 460px;
+	box-shadow: 5px 7px 14px 10px #efefef;
+}
+
+.tbody_css {
+	border: 1px solid #bcbaba;
+}
+
+.tr_main {
+	height: 30px;
+	vertical-align: middle;
+	background: #dfdfdf; /* border: 1px solid #dfdfdf; */
+	/* border-top: 1.5px solid #808080a1; */
+	border-right: none;
+	/* border-bottom: 1px solid #8080801a; */
+}
+
+.td_title {
+	width: 11%;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+.td_titlesub {
+	width: 100%;
+	text-align: left;
+	vertical-align: middle;
+	padding: 0px 0px 0px 3px;
+	padding: 1;
+}
+
+.input_titlesub {
+	width: 99.4%;
+	height: 86%;
+	border: none;
+}
+
+.tr_second {
+	vertical-align: middle;
+	height: 255px;
+	border-top: none;
+	border-left: none;
+	border-bottom: 1px solid #8080801a;
+	border-right: none;
+}
+
+.td_content {
+	background: #efefef;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+.td_contentsub {
+	text-align: left;
+	padding: 10px 0px 0px 3px;
+	width: 99%;
+	border: none;
+	height: 96.5%;
+	resize: none;
+}
+
+.tr_third {
+	height: 30px;
+	vertical-align: middle;
+	background: #dfdfdf;
+}
+
+.td_filepath {
+	vertical-align: middle;
+	font-weight: bold;
+	/* background: #efefef; */
+}
+
+.td_filepathsub {
+	width: 99%;
+	vertical-align: middle;
+	text-align: left;
+	background: #ffffff;
+	padding: 0px 0px 0px 3px;
+}
+
+.filepath_css {
+	background: white;
+	width: 99.5%;
+}
+
+/**	버튼 부분 **/
+.btn_area {
+	text-align: right;
+	margin-top: 15px;
+}
+
+.btn_area input, button {
+	height: 30px;
+	padding: 7px 15px 7px 15px;
+	cursor: pointer;
+	overflow: hidden;
+	border: 1.5px solid rgb(113 113 113/ 64%);
+	width: 60px;
+	border-radius: 6px;
+	background: transparent;
+}
+
+#cke_1_contents {
+   min-height: 295px;
+}

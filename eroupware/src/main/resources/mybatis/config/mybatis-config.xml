@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.ezenit.eroupware.example.bean.ExampleDTO" alias="exampleDTO"/>
+		
+		<!-- 공용 -->
+		<typeAlias type="com.ezenit.eroupware.commons.bean.MemberSelectDTO" alias="memberSelectDTO"/>
+		<typeAlias type="com.ezenit.eroupware.commons.bean.DeptSelectDTO" alias="deptSelectDTO"/>
+
+		<!-- 회원 -->
+		<typeAlias type="com.ezenit.eroupware.member.bean.MemberDTO" alias="memberDTO"/>
+		
+		<!-- 게시판 -->
+		<typeAlias type="com.ezenit.eroupware.board.notice.bean.NoticeDTO" alias="noticeDTO"/>
+		<typeAlias type="com.ezenit.eroupware.board.anony.bean.AnonyDTO" alias="anonyDTO"/>
+		
+		<!-- 전자결재 -->
+		<typeAlias type="com.ezenit.eroupware.report.bean.CReportDTO" alias="cReportDTO"/>
+		<typeAlias type="com.ezenit.eroupware.report.bean.EReportDTO" alias="eReportDTO"/>
+		<typeAlias type="com.ezenit.eroupware.report.bean.VReportDTO" alias="vReportDTO"/>
+		
+		<!-- 투두 -->
+		<typeAlias type="com.ezenit.eroupware.todo.bean.TodoDTO" alias="todoDTO"/>
+		
+		<!-- 프로젝트 -->
+		<typeAlias type="com.ezenit.eroupware.project.bean.ProjectDTO" alias="projectDTO"/>
+		<typeAlias type="com.ezenit.eroupware.project.bean.PmemberDTO" alias="pmemberDTO"/>
+		<typeAlias type="com.ezenit.eroupware.project.bean.ProjectListDTO" alias="projectListDTO"/>
+		<typeAlias type="com.ezenit.eroupware.project.bean.ProjectTaskCntDTO" alias="projectTaskCntDTO"/>
+		<typeAlias type="com.ezenit.eroupware.project.bean.ProjectMemberListDTO" alias="projectMemberListDTO"/>
+		
+		<!-- 태스크 -->
+		<typeAlias type="com.ezenit.eroupware.project.bean.TaskDTO" alias="taskDTO"/>
+		<typeAlias type="com.ezenit.eroupware.project.bean.TaskListDTO" alias="taskListDTO"/>
+		<typeAlias type="com.ezenit.eroupware.project.bean.TaskStatusCntDTO" alias="taskStatusCntDTO"/>
+		
+		<!-- 근태관리 -->
+		<typeAlias type="com.ezenit.eroupware.work.bean.WorkDTO" alias="workDTO"/>
+		<typeAlias type="com.ezenit.eroupware.work.bean.WorkListDTO" alias="workListDTO"/>
+		
+		<!-- 주소록 -->
+		<typeAlias type="com.ezenit.eroupware.contact.bean.ContactDTO" alias="contactDTO"/>
+		
+		<!-- 관리자용 -->
+		<typeAlias type="com.ezenit.eroupware.admin.bean.AdminMemberDTO" alias="adminMemberDTO"/>
+		
+		<!-- 메인페이지 전자결재용 -->
+		<typeAlias type="com.ezenit.eroupware.main.bean.ReportCountDTO" alias="reportCountDTO"/>
+		<typeAlias type="com.ezenit.eroupware.main.bean.ReportListDTO" alias="reportListDTO"/>
+		
+		
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="mybatis/mappers/example-mapping.xml"/>
+		
+		<!-- 공용 -->
+		<mapper resource="mybatis/mappers/common-mapping.xml"/>
+		<mapper resource="mybatis/mappers/main-mapping.xml"/>
+		
+		<!-- 회원 -->
+		<mapper resource="mybatis/mappers/member-mapping.xml"/>
+		
+		<!-- 게시판 -->
+		<mapper resource="mybatis/mappers/notice-mapping.xml"/>
+		<mapper resource="mybatis/mappers/anony-mapping.xml"/>
+		
+		<!-- 전자결재 -->
+		<mapper resource="mybatis/mappers/report-mapping.xml"/>
+		
+		<!-- 투두 -->
+		<mapper resource="mybatis/mappers/todo-mapping.xml"/>
+		
+		<!-- 프로젝트 -->
+		<mapper resource="mybatis/mappers/project-mapping.xml"/>
+		
+		<!-- 근태관리 -->
+		<mapper resource="mybatis/mappers/work-mapping.xml"/>
+		
+		<!-- 주소록 -->
+		<mapper resource="mybatis/mappers/contact-mapping.xml"/>
+		
+		<!-- 관리자용 -->
+		<mapper resource="mybatis/mappers/admin-mapping.xml"/>
+		
+	</mappers>
+</configuration>

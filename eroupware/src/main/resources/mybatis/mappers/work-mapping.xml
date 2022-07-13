@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.workMapper">
+	
+	<insert id="insertStartWork" parameterType="workDTO">
+		insert into ew_work (workNo, workDate, startTime, startIp, id)
+		values (seq_ew_work.nextVal, sysdate, sysdate, #{startIp}, #{id})
+	</insert>
+	
+	<update id="updateEndWork" parameterType="workDTO">
+		update ew_work set endtime = sysdate, endIp = #{endIp} where id= #{id}
+		and to_char(startTime, 'yyyymmdd') = to_char(SYSDATE, 'yyyymmdd')
+	</update>
+	
+	<select id="workCheck" parameterType="workDTO" resultType="int">
+		select count(*) from ew_work where id = #{id} and
+		to_char(${timeFlag}, 'yyyymmdd') = to_char(SYSDATE, 'yyyymmdd')
+	</select>
+	
+	<!-- <select id="getWorkList" parameterType="workListDTO" resultType="workListDTO">
+		select 
+			workNo,
+		    to_char(workDate, 'yyyy-mm-dd') as workDate,
+		    to_char(startTime, 'hh:mi:ss') as startTime,
+		    startIp,
+		    to_char(endTime, 'hh:mi:ss') as endTime,
+		    endIp,
+		    id
+		from ew_work where id = #{id} and to_char(workDate, 'yyyy-mm-dd') = #{workDate}
+	</select> -->
+	
+	<select id="getWorkList" parameterType="map" resultType="workListDTO">
+		select 
+			workNo,
+		    to_char(workDate, 'yyyy-mm-dd') as workDate,
+		    to_char(startTime, 'hh:mi:ss') as startTime,
+		    startIp,
+		    to_char(endTime, 'hh:mi:ss') as endTime,
+		    endIp,
+		    id
+		from ew_work where id = #{id} and to_char(workDate, 'yyyy-mm') = #{workDate}
+	</select>
+	
+	
+	
+</mapper>

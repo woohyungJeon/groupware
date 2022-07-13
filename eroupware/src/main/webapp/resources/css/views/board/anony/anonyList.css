@@ -1,0 +1,174 @@
+@charset "UTF-8";
+
+.div_wrap{
+	min-width: 963px;
+    min-height: 210px;
+    padding: 34px 50px 50px 50px;
+    text-align: center;
+}
+
+.table_area{
+	height: 460px;
+	width: 100%;
+}
+
+.table_css {
+	table-layout:fixed;
+    border-collapse: collapse;
+    width: 1000px;
+    margin: 0 auto;
+    /* height: 500px; */
+}
+
+.tr_css{
+	height: 30px;
+	font-weight: bold;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 2px solid gray;
+}
+
+/** 리스트 부분 **/
+.list_css .td_title{
+	text-align: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding-left: 10px;
+white-space: nowrap;}
+
+.list_css{
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	line-height: 40px;
+}
+
+.list_css td {
+	border-bottom: 1px solid #e8e8e8;
+}
+
+.list_css:link {
+	color:black; 
+	text-decoration: none;
+}
+
+.list_css:visited {
+	color:black; 
+	text-decoration: none;
+}
+
+.list_css:hover td {
+	color:black; 
+	text-decoration: none; 
+	background-color: rgba(234, 234, 234, 0.5); 
+	cursor:pointer;
+}
+
+.list_css:active {
+	color:black; 
+	text-decoration: none;
+}
+
+
+/** 페이징 부분 **/
+
+.paging_area {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.paging_css {
+	display: inline-block;
+}
+
+.paging_css li {
+	list-style: none; 
+	float: left; 
+	padding: 6px;
+	text-align: center;
+}
+
+.paging_a{
+	padding: 8px 11px 8px 11px;
+    margin-right: -13px;
+	float:left;
+	display:inline;
+	width:auto;
+	color:#000;
+	font:bold 12px tahoma;
+	border:1px solid #eee;
+	text-align:center;
+	text-decoration:none;
+}
+
+.paging_a:hover, .paging_a:focus{
+	color:#fff;
+	border:1px solid;
+	background-color: rgba(78, 78, 78, 0.7);
+}
+
+
+/** 검색 부분 **/
+.search_area {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+}
+
+.search_area select {
+	height:31px; 
+	text-align:center;
+	line-height:29px;	
+	padding: 6px 0 6px; 
+	vertical-align:middle; 
+	font-weight: bold; 
+    width: 80px;
+    border: 1px solid #cfcfcf;
+    margin-right: -5px;
+}
+
+.search_btn{
+	width:30px; 
+	height: 31px;
+	border: 1px solid #cfcfcf;
+	margin-left: -5px;
+	vertical-align: bottom;
+	cursor: pointer;
+}
+
+.search_img{
+	width: 10px;
+	height: 10px;
+}
+
+.search_keyword{
+	width:200px; 
+	height:27px; 
+	text-align:center; 
+	border: 1px solid #cfcfcf; 
+	vertical-align:middle; 
+	line-height:29px;
+}
+
+
+/** 글쓰기버튼 부분**/
+.writebtn_area{
+	text-align: right;
+}
+
+.writebtn_css{
+	height: 30px;
+	padding: 7px 15px 7px 15px;
+	cursor: pointer;
+	overflow: hidden;
+  	border: 1.5px solid rgb(113 113 113 / 64%);
+ 	width: 68px; 
+ 	border-radius: 6px;
+ 	background: transparent;
+ 	margin-right: 20px;
+}
+
+
+
+

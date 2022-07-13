@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<!-- 베이스 templates -->
+	<definition name="base_layout" template="/WEB-INF/tiles/template/layout.jsp">
+		
+		<put-attribute name="title" value="eroupware"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/tiles/template/header.jsp"></put-attribute>
+		<put-attribute name="nav" value="/WEB-INF/tiles/template/nav.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="favicon" value="eroupware_favicon.png"></put-attribute>
+		
+		<put-list-attribute name="stylesheets">
+			<add-attribute value="commons/css/common" />
+			<add-attribute value="commons/css/reset" />
+			<add-attribute value="commons/css/header" />
+			<add-attribute value="commons/css/nav" />
+		</put-list-attribute>
+		
+		<put-list-attribute name="javascripts">
+			<add-attribute value="commons/js/jquery-3.6.0.min" />
+			<add-attribute value="commons/js/jquery-ui" />
+			<add-attribute value="commons/js/ckeditor/ckeditor" />
+			<add-attribute value="commons/js/utils" />
+			<add-attribute value="commons/js/Chart" />
+			<add-attribute value="commons/js/common" />
+			<add-attribute value="commons/js/header" />
+			<add-attribute value="commons/js/nav" />
+		</put-list-attribute>
+		
+	</definition>
+	
+	<!-- 로그인, 회원가입용 templates -->
+	<definition name="login_layout" template="/WEB-INF/tiles/template/login_layout.jsp">
+		
+		<put-attribute name="title" value="eroupware"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/tiles/template/login_header.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="favicon" value="eroupware_favicon.png"></put-attribute>
+		
+		<put-list-attribute name="stylesheets">
+			<add-attribute value="commons/css/login_header" />
+			<add-attribute value="commons/css/reset" />
+			<add-attribute value="commons/css/common" />
+		</put-list-attribute>
+		
+		<put-list-attribute name="javascripts">
+			<add-attribute value="commons/js/jquery-3.6.0.min" />
+			<add-attribute value="commons/js/utils" />
+			<add-attribute value="commons/js/common" />
+			<add-attribute value="commons/js/login_header" />
+		</put-list-attribute>
+		
+	</definition>
+	
+	<!-- 관리자용 templates -->
+	<definition name="admin_layout" template="/WEB-INF/tiles/template/admin_layout.jsp">
+		
+		<put-attribute name="title" value="eroupware"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/tiles/template/admin_header.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="favicon" value="eroupware_favicon.png"></put-attribute>
+		
+		<put-list-attribute name="stylesheets">
+			<add-attribute value="commons/css/admin_header" />
+			<add-attribute value="commons/css/reset" />
+			<add-attribute value="commons/css/common" />
+		</put-list-attribute>
+		
+		<put-list-attribute name="javascripts">
+			<add-attribute value="commons/js/jquery-3.6.0.min" />
+			<add-attribute value="commons/js/ckeditor/ckeditor" />
+			<add-attribute value="commons/js/utils" />
+			<add-attribute value="commons/js/common" />
+			<add-attribute value="commons/js/admin_header" />
+		</put-list-attribute>
+		
+	</definition>
+	
+	<!-- 1Depth Controller -->
+	<definition name="tiles/**" extends="base_layout">
+		<!-- <put-attribute name="title" value="{1}"></put-attribute> -->
+		<put-attribute name="body" value="/views/{1}.jsp"></put-attribute>
+		<put-list-attribute name="stylesheets" 	inherit="true">
+			<add-attribute value="css/views/{1}" />
+		</put-list-attribute>
+		<put-list-attribute name="javascripts" 	inherit="true">
+			<add-attribute value="js/views/{1}" />
+		</put-list-attribute>
+	</definition>
+	
+	<!-- 로그인, 회원가입용 -->
+	<definition name="tilesLogin/**" extends="login_layout">
+		<!-- <put-attribute name="title" value="{1}"></put-attribute> -->
+		<put-attribute name="body" value="/views/{1}.jsp"></put-attribute>
+		<put-list-attribute name="stylesheets" 	inherit="true">
+			<add-attribute value="css/views/{1}" />
+		</put-list-attribute>
+		<put-list-attribute name="javascripts" 	inherit="true">
+			<add-attribute value="js/views/{1}" />
+		</put-list-attribute>
+	</definition>
+	
+	<!-- 관리자용 -->
+	<definition name="tilesAdmin/**" extends="admin_layout">
+		<!-- <put-attribute name="title" value="{1}"></put-attribute> -->
+		<put-attribute name="body" value="/views/{1}.jsp"></put-attribute>
+		<put-list-attribute name="stylesheets" 	inherit="true">
+			<add-attribute value="css/views/{1}" />
+		</put-list-attribute>
+		<put-list-attribute name="javascripts" 	inherit="true">
+			<add-attribute value="js/views/{1}" />
+		</put-list-attribute>
+	</definition>
+	
+	<definition name="department_selectbox" template="/WEB-INF/tiles/template/department_selectbox.jsp" preparer="departmentPreparer"></definition>
+
+	<!-- 접근권한 불가 페이지 -->
+	<!-- 
+	<definition name="exception/not_allowed_admin" extends="base_layout">
+		<put-attribute name="title" value="접근 권한이 없습니다."></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/exception/not_allowed_admin.jsp"></put-attribute>
+	  	<put-list-attribute name="stylesheets"    inherit="true">
+         	<add-attribute value="views/exception/not_allowed_admin" />
+      	</put-list-attribute>
+      	<put-list-attribute name="javascripts" inherit="true">
+         	<add-attribute value="views/exception/not_allowed_admin" />
+      	</put-list-attribute>
+	</definition>
+	
+	<definition name="exception/not_allowed_member" extends="base_layout">
+		<put-attribute name="title" value="접근 권한이 없습니다."></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/exception/not_allowed_member.jsp"></put-attribute>
+	  	<put-list-attribute name="stylesheets" inherit="true">
+         	<add-attribute value="views/exception/not_allowed_member" />
+      	</put-list-attribute>
+      	<put-list-attribute name="javascripts" inherit="true">
+         	<add-attribute value="views/exception/not_allowed_member" />
+      	</put-list-attribute>
+	</definition>
+	 -->
+</tiles-definitions>

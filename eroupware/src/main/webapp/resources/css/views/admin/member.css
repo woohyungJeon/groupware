@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+#wrap {
+	margin-left: 0 !important;
+}
+
+.div_wrap {
+	width: 963px;
+	min-height: 210px;
+	padding: 0px 50px 50px 50px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.table_area {
+	height: 460px;
+	width: 100%;
+	max-height: 600px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.table_css {
+	table-layout: fixed;
+	border-collapse: collapse;
+	width: 960px;
+	margin: 0 auto;
+	/* height: 500px; */
+}
+
+.tr_css {
+	height: 30px;
+	font-weight: bold;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 2px solid gray;
+}
+
+/** 리스트 부분 **/
+.list_css .td_title {
+	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.list_css {
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	line-height: 40px;
+}
+
+.list_css td {
+	border-bottom: 1px solid #e8e8e8;
+}
+
+.list_css:link {
+	color: black;
+	text-decoration: none;
+}
+
+.list_css:visited {
+	color: black;
+	text-decoration: none;
+}
+
+.list_css:hover td {
+	color: black;
+	text-decoration: none;
+	background-color: rgba(234, 234, 234, 0.5);
+	cursor: pointer;
+}
+
+.list_css:active {
+	color: black;
+	text-decoration: none;
+}
+
+.approvalBtn {
+	border: none;
+	width: 100px;
+	height: 25px;
+	cursor: pointer;
+	background: #c5c5c5;
+	border-radius: 3px;
+}

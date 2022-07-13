@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.todoMapper">
+	
+	<insert id="insertTodo" parameterType="todoDTO">
+		insert into ew_todo values(
+				seq_ew_todo.nextVal, 
+				#{id}, 
+				#{title}, 
+				#{content},
+				'gray',
+				(SELECT NVL(MAX(t.sort) + 1, 1) FROM ew_todo t),
+				sysdate
+			)
+	</insert>
+	
+	<select id="getTodoList" parameterType="map" resultType="todoDTO">
+		select todono, id, title, content, color, sort, to_char(regdate, 'YYYY-MM-DD') as regdate from ew_todo where id = #{id} order by sort desc
+	</select>
+	
+	<update id="updateTodoContent" parameterType="map">
+		update ew_todo set content = #{content} where todoNo = #{todoNo}
+	</update>
+	
+	<delete id="deleteTodo" parameterType="map">
+		delete from ew_todo where todoNo = #{todoNo}
+	</delete>
+	
+	<update id="updateTodoColor" parameterType="map">
+		update ew_todo set color = #{color} where todoNo = #{todoNo}
+	</update>
+	
+	<update id="updateTodoSort">
+		<foreach item="item" index="index" collection="list" separator=";" open="DECLARE BEGIN" close="; END;">
+			update ew_todo set sort = #{item.sort} WHERE todoNo = #{item.todoNo}
+		</foreach>
+	</update>
+	
+</mapper>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.anonyMapper">
+	
+<!--게시글 작성-->
+<insert id = "anonyWrite" parameterType="anonyDTO">
+	insert into ew_anony(anonyNo, id, title, content, hit, likeCount, regdate) values (seq_ew_anony.nextval,'id',#{title},#{content},0,0,sysdate)
+</insert>
+
+<!-- 좋아요 업데이트 -->
+<!-- <update id = "likeUpdate" parameterType="anonyDTO">
+	update ew_anony set likeCount= likecount+1 where id={#id} and anonyNo=${anonyNo}
+</update>
+<update id = "likeCancel" parameterType="notcieDTO">
+	update ew_anony set likeCount = 0 where id={#id} and anonyNo=${anonyNo}
+</update> -->
+<!--게시글 목록-->
+<!-- 
+<select id="anonyList" resultType="anonyDTO">
+	select anonyNo, title, content, hit, regdate from ew_anony order by anonyNo desc
+</select>
+ -->
+ 
+<!--페이징 처리-->
+<select id = "anonyListPage" resultType="anonyDTO" parameterType="com.ezenit.eroupware.board.anony.bean.SearchCriteria">
+	select anonyNo, title, content, hit, to_char(regdate, 'YYYY-MM-DD') as regdate, (select count(*) from ew_anonylike where anonyNo in mp.anonyNo) as likeCount
+	from (select anonyNo, title, content, hit, regdate, row_number() over 
+	(order by anonyNo desc) as rnum from ew_anony where 1=1 <include refid="search"></include>) MP where rnum between #{rowStart} and #{rowEnd} order by anonyNo desc
+</select>
+
+<!-- 게시물 총갯수 --> 
+<select id="anonyListCount" resultType="int" parameterType="com.ezenit.eroupware.board.anony.bean.SearchCriteria">
+	<!-- <![CDATA[ -->
+		SELECT COUNT(anonyNo)
+		  FROM ew_anony
+		 where 1=1
+		 <include refid="search"></include>
+		 and anonyNo > 0
+	<!--]]>  -->
+</select>
+
+<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">AND TITLE LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'c'.toString()">AND CONTENT LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'tc'.toString()">AND (TITLE LIKE '%' || #{keyword} || '%') or (CONTENT LIKE '%' || #{keyword} || '%')</if>
+		</if>
+</sql>
+
+<!--게시글 상세보기-->
+<select id="anonyView" parameterType="map" resultType="anonyDTO">
+	select anonyNo, title, content, hit, to_char(regdate, 'YYYY-MM-DD') as regdate, 
+	(select count(*) from ew_anonylike where anonyNo = #{anonyNo}) as likeCount,
+	(select count(*) from ew_anonylike where anonyNo = #{anonyNo} and id = #{id}) as likeFlag
+	from ew_anony where anonyNo=#{anonyNo}
+</select>
+
+<insert id="insertLike" parameterType="map">
+	insert into ew_anonylike values(#{anonyNo}, #{id})
+</insert>
+
+<delete id="deleteLike" parameterType="map">
+	delete from ew_anonylike where anonyNo = #{anonyNo} and id = #{id}
+</delete>
+
+<!--게시글 삭제-->
+<delete id="anonyDelete" parameterType="int">
+	Delete ew_anony where anonyNo=#{anonyNo}
+</delete>
+
+<!-- 게시글 조회수 -->
+<update id="updateHit" parameterType="int">
+	update ew_anony set hit = hit+1 where anonyNo=#{anonyNo}
+</update>
+
+<!--게시글 수정-->
+<update id="anonyUpdate" parameterType="anonyDTO">
+	update ew_anony set title=#{title} content=#{content} where anonyNo=#{anonyNo}
+</update>
+
+
+</mapper>

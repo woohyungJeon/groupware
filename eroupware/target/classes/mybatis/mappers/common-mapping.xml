@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.commonMapper">
+	 
+	<select id="getMemberSelectDTOList" resultType="memberSelectDTO">
+		select m.id, m.name, r.rankno, r.rankname, d.deptno from ew_member m, ew_department d, ew_rank r where m.deptno = d.deptno and m.rankno = r.rankno and m.authority != 'Y' order by d.deptno asc, r.rankno asc
+	</select>
+	
+	<select id="getDeptSelectDTOList" resultType="deptSelectDTO">
+		select * from ew_department order by deptno asc
+	</select>
+	
+	<select id="getFilepath" parameterType="map" resultType="String"> 
+		select filepath from 
+		${tableName}
+		where ${columnName} = #{no}
+	</select>
+	
+</mapper>

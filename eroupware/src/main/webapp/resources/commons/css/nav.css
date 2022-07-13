@@ -1,0 +1,203 @@
+@charset "UTF-8";
+
+#nav {
+	border: 0px;
+	/* background-color : #444F59; */
+	background-color: #072a40;
+	height: 100%;
+	min-height: 940px;
+	width: 230px;
+	/* position: fixed; */ 
+	position: absolute; 
+	left: 0px;
+	top: 53px;
+	border-radius: 0px 3px 0px 0px;
+}
+ 
+#nav .myCard {
+	width: 200px;
+	border-radius: 3px;
+	position: relative;
+	/* background: #697a8ac2; */
+	background: #0A3B59;
+	text-align: center;
+	box-shadow: 0px 1px 2px #afadad;
+/* border: 1px solid #afadad; */}
+
+#nav .myInfo {
+	height: 285px;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+#nav .myTitle {
+    position: absolute;
+    left: 5px;
+    top: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #e5e5e5;
+}
+
+#nav .myInfo img {
+   	width: 130px;  
+    height: 130px;
+    margin-top: 30px;
+    background: white;
+    border-radius: 70px;
+}
+ 
+#nav .myInfo .myName {
+    display: inline-block;
+    color: #f3f3f3;
+    width: 180px;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 8px;
+    text-align: left;
+    padding: 0px 10px;
+    font-size: 14px;
+}
+
+/* #nav .myInfo .myName .loginHistory {
+	font-size: 10px;
+} */
+
+#nav .myInfo .myButtonArea {
+	width: 100%;
+	height: 33px;
+	border-radius: 0px 0px 0px 0px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	border-top: 1px solid white;
+}
+#nav .myInfo .myButtonArea a {
+    display: inline-block;
+    width: 49%;
+    float: left;
+    height: 32px;
+    line-height: 33px;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+} 
+
+#nav .myInfo .myButtonArea a:first-child {
+	border-right: 1px solid white;
+}
+ 
+#nav .myQuickMemo {
+	height: 250px;
+    /* background: white; */
+    margin: 15px auto;
+}
+
+#nav .myQuickMemo .quickMemoArea {
+	width: 170px;
+    height: 182px;
+    background: #fff;
+    margin: 40px auto;
+    display: inline-block;
+    border-radius: 7px;
+    
+    background-image: -webkit-linear-gradient(top , transparent, transparent 1.76em, #818181 0);
+	background-size: 100% 1.85em;
+	
+	text-align: left;
+	padding: 3px;
+	
+	cursor: pointer;
+}
+
+#nav .myQuickMemo .quickMemoArea pre {
+	font-size: 1em;
+    line-height: 1.8em;
+    white-space: break-spaces;
+    color: black;
+}
+
+#nav .myQuickMemo .quickMemoTa {
+	font-size: 1em;
+    line-height: 1.8em;
+}
+
+#nav .myQuickMemo .editIcon {
+    position: absolute;
+    right: 3px;
+    top: 1px;
+    width: 20px;
+    cursor: pointer;
+}
+
+#nav .myQuickMemo .editCompleteBtn {
+	position: absolute;
+    right: 3px;
+    top: 1px;
+    width: 30px;
+    cursor: pointer;
+    display: none;
+    color: white;
+}
+
+#nav .myQuickMemo .quickMemoTa {
+	display: none;
+    margin-top: 40px;
+    width: 170px;
+    height: 182px;
+    border-radius: 7px;
+    resize: none;
+}
+
+#nav .myTnAMenu {
+	height: 85px;
+    /* background: white; */
+    margin: 15px auto;
+}
+
+#nav .myTnAMenu .tnaButtonArea {
+	width: 170px;
+    height: 25px;
+    background: white;
+    margin: 35px auto;
+    display: inline-block;
+    border-radius: 7px;
+    text-align: center;
+    padding: 3px;
+}
+
+#nav .myTnAMenu .tnaButtonArea a {
+	width: 80px;
+    height: 26px;
+    line-height: 26px;
+    color: black;
+    background: white;
+    display: inline-block;
+    text-decoration: none;
+font-size: 13px;}
+
+#nav .myTnAMenu .tnaButtonArea a:first-child {
+	border-right: 1px solid #697a8ac2;
+} 
+
+#nav .copyrightArea {
+	position: absolute;
+	bottom: 8%;
+	left: 20px;
+	color: #cfcfcf;
+    font-size: 12px;
+	
+}
+
+.tnaButtonArea .workBtn {
+	background: white;
+    color: black;
+    border: none;
+    width: 80px;
+    height: 25px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+
+

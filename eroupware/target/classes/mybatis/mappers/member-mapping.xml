@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.memberMapper">
+	 
+	<select id="memberLoginCheck" parameterType="memberDTO" resultType="memberDTO">
+		select * from ew_member where id = #{id} and pwd = #{pwd}
+	</select>
+	
+	<select id="memberIdCheck" parameterType="map" resultType="int">
+		select count(*) from ew_member where id = #{id}
+	</select>	
+	
+	<!-- 
+	<insert id="memberJoin">
+		insert into ew_member values (#{id}, #{name}, #{pwd}, #{mobile}, #{addnumber},
+		#{addname}, #{adddetail}, #{department}, #{position}, #{email}, #{image},
+		#{birth}, #{gender}, #{enabled}, #{authority}, #{hiredate}, #{qmemo});
+	</insert>
+	 -->
+	
+	<insert id="memberJoin">
+		insert into ew_member values (#{id}, #{name}, #{pwd}, #{mobile}, #{addnumber},
+		#{addname}, #{adddetail}, #{department}, #{position}, #{email}, 'no-image.jpg',
+		#{birth}, #{gender}, 'N', 'N' , sysdate, null)
+	</insert>
+	
+</mapper>

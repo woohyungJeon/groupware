@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.mainMapper">
+	 
+	<select id="getMemberInfo" resultType="com.ezenit.eroupware.main.bean.MainMemberDTO">
+		select * from ew_member m, ew_department d, ew_rank r where m.rankno = r.rankno and m.deptno = d.deptno and id = #{id}
+	</select>
+	
+	<update id="updateMemberMemo" parameterType="hashMap">
+		update ew_member set qmemo = #{qmemo} where id = #{id}
+	</update>
+	
+	<select id="getNoticeList" resultType="noticeDTO">
+		select seq, title, content, hit, to_char(logtime, 'YYYY-MM-DD')as logtime from 
+		(select seq, title, content, hit, logtime, row_number() over 
+		(order by seq desc) as rnum 
+		from ew_notice where 1=1) EW where rnum between 1 and 8 order by seq desc
+	</select>
+	
+	<select id="memberPwdCheck" parameterType="map" resultType="int">
+		select count(*) from ew_member where id = #{id} and pwd = #{pwd}
+	</select>
+	
+	<update id="updateMember" parameterType="com.ezenit.eroupware.main.bean.MainMemberDTO">
+		update ew_member 
+		set  
+			mobile = #{mobile},
+			addnumber = #{addnumber},
+			addname = #{addname},
+			adddetail = #{adddetail},
+			deptno = #{deptno},
+			rankno = #{rankno},
+			<if test="image != null">
+				image = #{image},
+			</if>
+			email = #{email}
+		where id = #{id}
+	</update>
+	
+	<select id="getRequestReportCnt" parameterType="String" resultType="reportCountDTO">
+		select 
+	
+		eCnt_n+cCnt_n+vCnt_n as cnt_n,
+		eCnt_y+cCnt_y+vCnt_y as cnt_y,
+		eCnt_f+cCnt_f+vCnt_f as cnt_f,
+		r_eCnt+r_cCnt+r_vCnt as cnt_r
+		
+		from
+		(select 
+		(select count(*) from ew_eReport where r_id = #{id} and r_status = 'N') as eCnt_n,
+		(select count(*) from ew_cReport where r_id = #{id} and r_status = 'N') as cCnt_n,
+		(select count(*) from ew_vReport where r_id = #{id} and r_status = 'N') as vCnt_n,
+		
+		(select count(*) from ew_eReport where r_id = #{id} and r_status = 'Y') as eCnt_y,
+		(select count(*) from ew_cReport where r_id = #{id} and r_status = 'Y') as cCnt_y,
+		(select count(*) from ew_vReport where r_id = #{id} and r_status = 'Y') as vCnt_y,
+		
+		(select count(*) from ew_eReport where r_id = #{id} and r_status = 'F') as eCnt_f,
+		(select count(*) from ew_cReport where r_id = #{id} and r_status = 'F') as cCnt_f,
+		(select count(*) from ew_vReport where r_id = #{id} and r_status = 'F') as vCnt_f,
+		
+		(select count(*) from ew_eReport where r_approver = #{id} and r_status = 'N') as r_eCnt,
+		(select count(*) from ew_cReport where r_approver = #{id} and r_status = 'N') as r_cCnt,
+		(select count(*) from ew_vReport where r_approver = #{id} and r_status = 'N') as r_vCnt
+		
+		from dual)
+	</select>
+	
+	<select id="getReportList" parameterType="String" resultType="reportListDTO">
+		select * from
+		(select rownum rn, tt.* from (
+		select * from 
+		(
+			select seq_ew_draft, 'Expense' as type, r_title, r_position, r_drafter, to_char(r_draftDate, 'YYYY-MM-DD') as r_draftDate  from ew_eReport where r_approver = #{id} and r_status = 'N'
+			union
+			select seq_ew_draft, 'Cooperate' as type, r_title, r_position, r_drafter, to_char(r_draftDate, 'YYYY-MM-DD') as r_draftDate from ew_cReport where r_approver = #{id} and r_status = 'N'
+			union
+			select seq_ew_draft, 'Vacation' as type, r_title, r_position, r_drafter, to_char(r_draftDate, 'YYYY-MM-DD') as r_draftDate from ew_vReport where r_approver = #{id} and r_status = 'N'
+		) 
+		order by seq_ew_draft desc) tt) where rn between 1 and 5
+	</select>
+	
+	
+</mapper>

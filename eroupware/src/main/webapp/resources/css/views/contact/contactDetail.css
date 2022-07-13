@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+.div_wrap{
+	min-width: 550px;
+    min-height: 210px;
+    padding: 34px 50px 50px 50px;
+    text-align: center;
+}
+
+.table_area{
+	height: 460px;
+	width : 500px;
+	/*width: 100%;*/
+}
+
+.table_css {
+    /*border-collapse: collapse;
+    width: 1000px;*/
+    border: 1px solid #444444;
+    margin: 0 auto;
+}
+
+img {
+	height: 100%;
+	width: 100%;
+	vertical-align: top;
+}
+
+.tr_css{
+	height: 30px;
+	font-weight: bold;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 2px solid gray;
+}
+

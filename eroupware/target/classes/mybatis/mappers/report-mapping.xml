@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.reportMapper">
+	<!-- expense insert -->
+		<insert id="expenseInsert" parameterType="eReportDTO">
+			insert into ew_eReport values (
+				seq_ew_draft.nextval, 
+				#{r_id},
+				#{r_drafter}, 
+				sysdate, 
+				#{r_department}, 
+				#{r_position}, 
+				#{r_title}, 
+				#{r_content}, 
+				#{r_approver},
+				'N', 
+				<if test="filepath != null">
+				#{r_aso},
+				#{filepath}
+				</if>
+				<if test="filepath == null">
+				#{r_aso},
+				null
+				</if>
+			)
+		</insert>
+	<!-- expense delete -->
+		<delete id="expenseDelete" parameterType="int">
+			delete ew_eReport where seq_ew_draft=#{seq_ew_draft}
+		</delete>
+	<!-- expense select 상신함 목록 -->
+		<select id="expenseList" parameterType="java.util.Map" resultType="eReportDTO">
+		<![CDATA[ select * from
+		(select rownum rn, tt.* from
+		(select * from ew_eReport where r_id = #{r_id} order by seq_ew_draft desc) tt)
+		where rn>=#{startNum} and rn<=#{endNum}  ]]>
+		</select>
+	<!-- expense 상신함 총 데이터 갯수 -->
+		<select id="expenseTotal" resultType="int" parameterType="String">
+			select count(*) as cnt from ew_eReport where r_id = #{r_id}
+		</select>
+	<!-- expense select 상신함 상세보기 -->
+		<select id="expenseView" parameterType="int" resultType="eReportDTO">
+			select * from ew_eReport where seq_ew_draft=#{seq_ew_draft}
+		</select>
+	<!-- expense select 수신함 목록 -->
+		<select id="expenseReceptionList" parameterType="java.util.Map" resultType="eReportDTO">
+		<![CDATA[ select * from
+		(select rownum rn, tt.* from
+		(select * from ew_eReport where r_approver = #{r_id} order by seq_ew_draft desc) tt)
+		where rn>=#{startNum} and rn<=#{endNum}  ]]>
+		</select>
+	<!-- expense 수신함 총 데이터 갯수 -->
+		<select id="expenseReceptionTotal" resultType="int" parameterType="String">
+			select count(*) as cnt from ew_eReport where r_approver=#{r_id}
+		</select>
+	<!-- expense 수신함 상세보기 -->
+		<select id="expenseReceptionView" parameterType="int" resultType="eReportDTO">
+			select * from ew_eReport where seq_ew_draft=#{seq_ew_draft}
+		</select>
+	<!-- expense 결재완료 ajax -->
+		<update id="expenseApprove" parameterType="map">
+			update ew_eReport set r_status = #{flag} where seq_ew_draft=#{seq_ew_draft}
+		</update>
+
+
+
+
+
+
+	<!-- cooperate insert -->
+		<insert id="cooperateInsert" parameterType="cReportDTO">
+		insert into ew_cReport values(
+			seq_ew_draft.nextval, 
+			#{r_id}, 
+			#{r_drafter}, 
+			sysdate, 
+			#{r_department}, 
+			#{r_position}, 
+			#{r_title}, 
+			#{r_content}, 
+			#{r_approver},
+			'N', 
+			#{r_aso}
+		)
+	 	</insert>
+	<!-- cooperate delete -->
+		<delete id="cooperateDelete" parameterType="int">
+			delete ew_cReport where seq_ew_draft=#{seq_ew_draft}
+		</delete>
+	<!-- cooperate select 상신함 목록 -->
+		<select id="cooperateList" parameterType="java.util.Map" resultType="cReportDTO">
+		<![CDATA[ select * from
+		(select rownum rn, tt.* from
+		(select * from ew_cReport where r_id = #{r_id} order by seq_ew_draft desc) tt)
+		where rn>=#{startNum} and rn<=#{endNum}  ]]>
+		</select>
+	<!-- cooperate 상신함 총 데이터 갯수 -->
+		<select id="cooperateTotal" resultType="int" parameterType="String">
+			select count(*) as cnt from ew_cReport where r_id=#{r_id}
+		</select>
+	<!-- cooperate select 상세보기 -->
+		<select id="cooperateView" parameterType="int" resultType="cReportDTO">
+			select * from ew_cReport where seq_ew_draft = #{seq_ew_draft}
+		</select>
+	<!-- cooperate select 수신함 목록 -->
+		<select id="cooperateReceptionList" parameterType="java.util.Map" resultType="cReportDTO">
+		<![CDATA[ select * from
+		(select rownum rn, tt.* from
+		(select * from ew_cReport where r_approver=#{r_id} order by seq_ew_draft desc) tt)
+		where rn>=#{startNum} and rn<=#{endNum}  ]]>
+		</select>
+	<!-- cooperate 수신함 총 데이터 갯수 -->
+		<select id="cooperateReceptionTotal" resultType="int" parameterType="String">
+			select count(*) as cnt from ew_cReport where r_approver=#{r_id}
+		</select>
+	<!-- cooperate 수신함 상세보기 -->
+		<select id="cooperateReceptionView" parameterType="int" resultType="cReportDTO">
+			select * from ew_cReport where seq_ew_draft=#{seq_ew_draft}
+		</select>
+	<!-- cooperate 결재완료 ajax -->
+		<update id="cooperateApprove" parameterType="map">
+			update ew_cReport set r_status = #{flag} where seq_ew_draft=#{seq_ew_draft}
+		</update>
+
+
+
+
+
+
+	<!-- vacation insert -->
+		<insert id="vacationInsert" parameterType="vReportDTO">
+		insert into ew_vReport values(
+			seq_ew_draft.nextval,
+			#{r_id},
+			#{r_drafter},
+			sysdate,
+			#{r_department},
+			#{r_position},
+			#{r_type},
+			#{r_Start},
+			#{r_title},
+			#{r_content},
+			#{r_approver},
+			'N', 
+			#{r_aso}
+		 )
+	 	</insert>
+	<!-- vacation delete -->
+		<delete id="vacationDelete" parameterType="int">
+			delete ew_vReport where seq_ew_draft=#{seq_ew_draft}
+		</delete>
+	<!-- vacation select 상신함 목록 -->
+		<select id="vacationList" parameterType="java.util.Map" resultType="vReportDTO">
+		<![CDATA[ select * from
+		(select rownum rn, tt.* from
+		(select * from ew_vReport where r_id = #{r_id} order by seq_ew_draft desc) tt)
+		where rn>=#{startNum} and rn<=#{endNum}  ]]>
+		</select>
+	<!-- vacation 상신함 총 데이터 갯수 -->
+		<select id="vacationTotal" resultType="int" parameterType="String">
+			select count(*) as cnt from ew_vReport where r_id=#{r_id}
+		</select>
+	<!-- vacation select 수신함 상세보기 -->
+		<select id="vacationView" parameterType="int" resultType="vReportDTO">
+			select * from ew_vReport where seq_ew_draft=#{seq_ew_draft}
+		</select>
+	<!-- vacation select 수신함 목록 -->
+		<select id="vacationReceptionList" parameterType="java.util.Map" resultType="vReportDTO">
+		<![CDATA[ select * from
+		(select rownum rn, tt.* from
+		(select * from ew_vReport where r_approver=#{r_id} order by seq_ew_draft desc) tt)
+		where rn>=#{startNum} and rn<=#{endNum}  ]]>
+		</select>
+	<!-- vacation 수신함 총 데이터 갯수 -->
+		<select id="vacationReceptionTotal" resultType="int" parameterType="String">
+			select count(*) as cnt from ew_vReport where r_approver=#{r_id}
+		</select>
+	<!-- vacation 수신함 상세보기 -->
+		<select id="vacationReceptionView" parameterType="int" resultType="vReportDTO">
+			select * from ew_vReport where seq_ew_draft=#{seq_ew_draft}
+		</select>
+	<!-- vacation 결재완료 ajax -->
+		<update id="vacationApprove" parameterType="map">
+			update ew_vReport set r_status = #{flag} where seq_ew_draft=#{seq_ew_draft}
+		</update>
+</mapper>

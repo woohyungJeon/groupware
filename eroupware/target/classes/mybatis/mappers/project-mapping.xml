@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.projectMapper">
+	
+	<insert id="insertProject" parameterType="projectDTO" useGeneratedKeys="true" keyProperty="projectNo">
+		<selectKey keyProperty="projectNo" resultType="int" order="BEFORE">
+    		select seq_ew_project.nextVal FROM DUAL
+  		</selectKey>
+			insert into ew_project values(
+				#{projectNo}, 
+				#{title}, 
+				#{content},
+				'wait', 
+				#{color},
+				sysdate
+			)
+	</insert>
+	
+	
+	<update id="insertProjectMembers" parameterType="pmemberDTO">
+		<foreach item="item" index="index" collection="idArr" separator=";" open="DECLARE BEGIN" close="; END;">
+			insert into ew_pmember values(
+				seq_ew_pmember.nextVal,
+				#{item, jdbcType=VARCHAR},
+				#{projectNo}
+			)
+		</foreach>
+	</update>
+	
+	<select id="getProjectList" parameterType="String" resultType="projectListDTO">
+		select projectNo, title, content, status, color, to_char(regdate, 'YYYY-MM-DD') as regdate, 
+		(select count(*) from ew_pmember where projectNo = p.projectNo) as pmembers,
+		nvl(round((select count(case when status = 'complete' then 1 end) 
+		from ew_task where projectNo = p.projectNo) / 
+		decode((select count(*) from ew_task where projectNo = p.projectNo), 0, null, 
+		(select count(*) from ew_task where projectNo = p.projectNo)) * 100), 0) 
+		as percent
+		from ew_project p where projectNo in 
+		(select projectNo from ew_pmember where id = #{id})
+		order by projectNo desc
+	</select>
+	
+	<select id="getProjectInfo" parameterType="int" resultType="projectListDTO">
+		select projectNo, title, content, status, to_char(regdate, 'YYYY-MM-DD') as regdate,
+		(select count(*) from ew_pmember where projectNo = #{projectNo}) as pmembers
+		from ew_project where projectNo = #{projectNo}
+	</select>
+	
+	<insert id="insertTask" parameterType="taskDTO">
+		insert into ew_task values(
+		seq_ew_task.nextVal, 
+		#{id}, 
+		#{title}, 
+		#{content}, 
+		'wait',
+		<if test="filepath != null">
+		#{filepath}, 
+		</if>
+		<if test="filepath == null">
+		null,
+		</if> 
+		#{projectNo})
+	</insert>
+	
+	<select id="getTaskList" parameterType="int" resultType="taskListDTO">
+		select t.taskno, t.id, t.title, t.content, t.status, t.filepath, t.projectno,
+		m.name, r.rankname, d.deptname
+		from ew_task t, ew_member m, ew_rank r, ew_department d
+		where t.projectno = #{projectNo} and t.id = m.id and m.rankno = r.rankno and m.deptno = d.deptno
+		order by t.taskno desc
+	</select>
+	
+	
+	<select id="getProjectTaskCnt" parameterType="int" resultType="projectTaskCntDTO">
+		select 
+		count(*) as totalCnt,
+		count(case when status = 'wait' then 1 end) as waitCnt,
+		count(case when status = 'process' then 1 end) as processCnt,
+		count(case when status = 'complete' then 1 end) as completeCnt
+		from ew_task where projectNo = #{projectNo}
+	</select>
+	
+	<select id="getProjectMemberList" parameterType="int" resultType="projectMemberListDTO">
+		select pm.id, pm.projectNo, m.name, m.image, r.rankname, d.deptname 
+		from ew_pmember pm, ew_member m, ew_rank r, ew_department d
+		where projectNo = #{projectNo} and pm.id = m.id and r.rankno = m.rankno and m.deptno = d.deptno
+		order by r.rankno desc
+	</select>
+	
+	<select id="getTaskStatusCntByMember" parameterType="map" resultType="taskStatusCntDTO">
+		select 
+		count(*) as totalCnt, 
+		count(case when status = 'complete' then 1 end) as completeCnt 
+		from ew_task where projectNo = #{projectNo} and id = #{id}
+	</select>
+	
+	<update id="updateTaskStatus" parameterType="map">
+		update ew_task set status = #{status} where taskNo = #{taskNo}
+	</update>
+	
+	<delete id="deleteTask" parameterType="int">
+		delete from ew_task where taskNo = #{taskNo}
+	</delete>
+	
+	<update id="updateProject" parameterType="projectDTO">
+		update ew_project set title = #{title}, content = #{content} where projectNo = #{projectNo}
+	</update>
+	
+</mapper>

@@ -1,0 +1,268 @@
+@charset "UTF-8";
+
+.mainWrap {
+	width: 100%;
+	height: 800px;
+	/* padding: 20px; */
+	box-sizing: border-box;
+	/* background: gray; */
+}
+
+.area {
+	background: white;
+	width: 46%;
+	height: 43%;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	float: left;
+	box-shadow: 0px 0px 1px #3c3c3c;
+	position: relative;
+	/* border: 2px solid #072a40; */
+	padding: 10px;
+}
+
+.mainTitleSpan {
+	font-size: 16px;
+	font-weight: 500;
+	position: absolute;
+	left: 22px;
+	top: 6px;
+}
+
+.listButton {
+	border: none;
+	background: none;
+	/* float: right; */
+	/* margin-top: 0px; */
+	/* margin-right: 10px; */
+	cursor: pointer;
+	position: absolute;
+	right: 20px;
+	top: 9px;
+}
+
+/* ----------------------- 공지사항 영역 시작 ----------------*/
+.noticeArea {
+	width: 57% !important;
+}
+
+.noticeArea table {
+	margin: 32px auto;
+	width: 97%;
+	table-layout: fixed;
+}
+
+.noticeArea table tr td {
+	border-bottom: 1px solid #a5a5a5;
+	text-align: center;
+}
+
+.noticeArea table tr:nth-child(1) {
+	background: #efefef;
+}
+
+.noticeArea table tr .titleTd {
+	text-align: left;
+	padding-left: 5px;
+}
+
+.noticeArea table .noticeList {
+	height: 35px;
+	cursor: pointer;
+}
+
+.noticeArea table .noticeList:hover {
+	background: #efefef;
+}
+
+.noticeArea table .noticeList td {
+	vertical-align: middle;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+/* ----------------------- 공지사항 영역 끝 ----------------*/
+
+/* ----------------------- 프로젝트 영역 시작 ----------------*/
+.projectCardArea {
+	width: 100%;
+	height: 100%;
+	margin-top: 15px;
+}
+
+.projectCardArea .projectCard {
+	width: 17.4%;
+	height: 36%;
+	background: #ffffff;;
+	float: left;
+	border-radius: 9px;
+	padding: 10px 10px;
+	box-shadow: 0px 1px 3px #a3a3a3;
+	position: relative;
+	cursor: pointer;
+	margin: 1.6%;
+}
+
+.projectCardArea .projectCard:hover {
+	transform: scale(1.07, 1.07);
+}
+
+.projectCardArea .projectCard span {
+	color: white;
+}
+
+.projectCardTitleSpan {
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.projectCardMemberSpan {
+	display: block;
+	font-size: 12px;
+}
+
+.projectCardPercentSpan {
+	position: absolute;
+	right: 10px;
+	font-size: 30px;
+	font-weight: 900;
+	bottom: 20px;
+}
+
+/* ----------------------- 프로젝트 영역 끝 ----------------*/
+
+/* ----------------------- 달력 영역 시작 ----------------*/
+.calendarArea {
+	width: 35% !important;
+}
+
+.cal_top {
+	text-align: center;
+	font-size: 25px;
+	/* margin-bottom: 10px; */
+}
+
+.cal_top a {
+	text-decoration: none;
+	color: black;
+}
+
+.cal {
+	text-align: center;
+	margin-top: 15px;
+}
+
+table.calendar {
+	display: inline-table;
+	text-align: center;
+}
+
+table.calendar td {
+	vertical-align: middle;
+	border-bottom: 1px solid #a1a1a1;
+	width: 100px;
+	font-size: 16px;
+	font-weight: 400;
+}
+
+table.calendar th {
+	background: #efefef;
+	/* border: 1px solid #a1a1a1; */
+	color: black;
+	font-weight: bold;
+}
+
+table.calendar .currentDay {
+	background: #0a3b59;
+	color: white;
+}
+
+table.calendar .currentDay div {
+	color: white !important;
+}
+/* ----------------------- 달력 영역 끝 ----------------*/
+
+/* ----------------------- 전자결재 시작 ------------------------*/
+.reportCardArea {
+	width: 100%;
+	height: 100%;
+	margin-top: 15px;
+}
+
+.reportCntDiv {
+	width: 26%;
+	height: 30%;
+	margin: 3.5%;
+	margin-top: 6%; /* border: 1px solid black; */
+	float: left;
+	text-align: center;
+border-bottom: 1px solid black;}
+
+.reportCntTitle {
+	font-size: 25px;
+	display: block;
+	/* margin-top: 10px; */
+	font-weight: 400;
+}
+
+.reportCntVal {
+	font-size: 40px;
+	margin-top: 25px;
+	display: block;
+	font-weight: 400;
+}
+
+.reportCntDiv img {
+	width: 50%;
+}
+
+.receiveArea {
+	position: relative;
+	margin-top: 1%;
+border-bottom: none;}
+
+.receiveArea .reportCntVal {
+	position: absolute;
+	top: -36%;
+	right: 24%;
+	color: white;
+	width: 19%;
+	height: 35%;
+	background: red;
+	border-radius: 30px;
+	line-height: 128%;
+	font-size: 27px;
+	opacity: 0.8;
+}
+
+.reportArea table {
+	width: 60%;
+	table-layout: fixed;
+	/* float: right; */
+}
+
+.reportArea table td {
+	text-align: center;
+	border-bottom: 1px solid #dbdbdb;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.reportArea table .reportTitleTd {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-align: left;
+	padding-left: 10px;
+}
+
+.reportArea table tr {
+	cursor: pointer;
+}
+
+.reportArea table tr:hover {
+	background: #e7e7e7;
+}
+
+/* ----------------------- 전자결재 끝 ------------------------*/

@@ -1,0 +1,156 @@
+@charset "UTF-8";
+  
+/* #header {
+	width: 100%;
+	min-width: 1680px;
+	max-width: 1920px;
+    height: 50px;
+    background: #3E4149;
+    left: 0px;
+	top: 0px;
+	position: fixed;
+}
+
+#headerMenu {
+	left: 250px;
+	top: 50px;
+	width: 87%;
+	max-width: 1900px;
+	min-width: 1430px;
+	height: 50px;
+	background: #d1d1d1;
+	position: fixed;
+	margin-left: 250px;
+} */
+
+#header {
+	position: fixed;
+	width: 100%;
+	height: 50px;
+	top: 0;
+	left: 0;
+	/* min-width: 1200px; */
+	min-width: 1320px;
+	background: #072a40;
+	z-index: 100;
+}
+#header .headerLogo {
+	color: white;
+    font-size: 30px;
+    line-height: 45px;
+    margin-left: 27px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#header .headerTime {
+	color: white;
+    position: absolute;
+    right: 20px;
+    top: 13px;
+    font-size: 16px;
+}
+
+#headerMenu {
+    height: 30px;
+    min-width: 1040px;
+    background: #072a40;
+    line-height: 50px;
+    border-radius: 7px;
+    color: white;
+    display: inline-block;
+    position: absolute;
+    left: 233px;
+    /* top: 10px; */
+    height: 50px;
+}
+
+#headerMenu > ul > li {
+	float: left;
+	width: 130px;
+	font-size: 15px;
+	text-align: center;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+#headerMenu > ul > li > a {
+	display: inline-block;
+	color: white;
+	width: 100%;
+	text-decoration: none;
+}
+
+#headerMenu .sub {
+  /* width: 170px; */
+  margin: 0 auto;
+  position: absolute;
+  top: 51px;
+  left: 0;
+  z-index: 1;
+  display: none;
+  border: 1px solid #3e4149;
+  border-top: none;
+  border-radius: 3px;
+} 
+
+
+#headerMenu .sub2 {
+	left: 130px;
+}
+
+#headerMenu .sub > li:last-child {
+	/* border-top: 2px solid #3e4149; */
+	border-radius: 0px 0px 3px 3px;
+	border-bottom: none;
+}
+
+#headerMenu .sub > li:first-child {
+	/* border-top: 2px solid #3e4149; */
+	border-radius: 3px 3px 0px 0px;
+}  
+
+#headerMenu .sub > li {
+	width: 130px;
+	height: 30px;
+	font-size: 13px;
+	line-height: 30px;
+	color: #fff;
+	background: #072a40;
+	box-sizing: border-box;
+	/* border-bottom: 1px solid #3e4149; */
+	border-bottom: #fff;
+}
+
+#headerMenu .sub > li:hover {
+	background: #fff;
+}
+
+#headerMenu .sub > li:hover a {
+	color: #444444;
+}
+
+#headerMenu .sub > li a {
+	color: #fff;
+	text-decoration: none;
+    display: inline-block;
+    width: 100%;
+}
+
+.adminLogoutBtn {
+	color: white;
+    position: absolute;
+    right: 230px;
+    top: 11px;
+    font-size: 16px;
+    background: #2482bd;
+    border: none;
+    border-radius: 3px;
+    width: 100px;
+    height: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    line-height: 25px;
+}

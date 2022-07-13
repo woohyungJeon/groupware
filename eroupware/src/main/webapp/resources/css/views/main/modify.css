@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+.modifyWrap {
+	margin: 0 auto;
+	width: 610px;
+	/* height: 630px; */
+	/* border: 1px solid black; */
+	margin-top: 40px;
+	border-bottom: none;
+	box-shadow: 0px 0px 3px #3c3c3c;
+}
+
+.modifyWrap table {
+	width: 100%;
+}
+
+.modifyWrap table tr td {
+	border-bottom: 1px solid #b1b1b1;
+	vertical-align: middle;
+	padding: 10px;
+	background: white;
+}
+
+.imageTd {
+	height: 180px;
+}
+
+.imageTd, .titleTd, .buttonTd {
+	text-align: center;
+}
+
+.titleTd {
+	border-right: 1px solid #b1b1b1;
+	background: #0a3b59 !important;
+	color: white;
+	font-weight: bold;
+	/* width: 140px; */
+}
+
+.imageArea {
+	width: 150px;
+	height: 150px;
+	/* background: blue; */
+	margin: 0 auto;
+	border-radius: 160px;
+}
+
+.mobile {
+	width: 60px;
+	text-align: center;
+}
+
+.addnumber {
+	width: 80px;
+}
+
+.addname, .addDetail {
+	margin-top: 5px;
+}
+
+.addname {
+	width: 220px;
+}
+
+.addDetail {
+	width: 460px;
+}
+
+.modifyWrap .select {
+	width: 100px;
+}
+
+.modifySubmitBtn {
+	width: 150px;
+	height: 40px;
+	border: none;
+	cursor: pointer;
+	color: white;
+	font-weight: bold;
+	background: #2482bd;;
+	border-radius: 5px;
+}
+
+.fixedTd {
+	background: #dbdbdb !important;
+	font-weight: 600;
+}
+
+.imageFile {
+	display: none;
+}
+
+.cameraImg {
+	position: absolute;
+    bottom: 23px;
+    right: 238px;
+    background: white;
+    width: 22px;
+    padding: 7px;
+    border-radius: 14px;
+    border: 1px solid balck;
+    border: 1px solid #a3a3a3;
+    cursor: pointer;
+}
+
+.modifyWrap table .imageTd td {
+	position: relative;
+}
+
+.addBtn {
+	border: none;
+    background: #2482bd;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.buttonTd {
+	position: relative;
+}
+
+.cancelBtn {
+	border: none;
+	background: none;
+	color: #606060;
+	position: absolute;
+	bottom: 4px;
+	right: 4px;
+	cursor: pointer;
+}

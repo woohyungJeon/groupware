@@ -1,0 +1,146 @@
+/* 헤더부분만큼 바디 내리기 */
+#wrap {
+	border: 0px;
+   background-color: #fdfdfd;
+   min-height: 860px;
+/*    min-width: 900px; */
+   min-width: 1000px;
+   margin-top: 53px;
+   margin-left: 233px;
+   overflow-x:hidden;
+   overflow-y:auto;
+   border-radius: 3px 0px 0px 0px;
+   padding: 40px;
+}
+  
+/* 화면전환 효과 */
+/* keyframes 정의 */
+@keyframes circleLeft {
+  0%{
+    transform: translateX(-20px);
+  }
+  50%{
+    transform: translateX(20px);
+  }
+  100%{
+    transform: translateX(-20px);
+  }
+}
+@keyframes circleRight {
+  0%{
+    transform: translateX(20px);
+  }
+  50%{
+    transform: translateX(-20px);
+  }
+  100%{
+    transform: translateX(20px);
+  }
+}
+.loader-moving{
+  position: fixed;
+  width:100%;
+  height: 100%;
+  left:0;
+  top:0;
+  background: #fff;
+  opacity: 0.8;
+  z-index:100;
+  transition:all 1.2s;
+}
+.loader-moving > span{
+  position: absolute;
+  top:50%;
+  left:50%;
+  width:20px;
+  height:20px;
+  border-radius: 100%;
+  margin:-10px 0 0;
+}
+.loader-moving > span.left{
+  background: #6565a7;
+  transform: translateX(-30px);
+  animation:circleLeft 1s cubic-bezier(.645,.045,.355,1) infinite;
+}
+.loader-moving > span.right{
+  background: #5796cf;
+  transform: translateX(30px);
+  animation:circleRight 1s cubic-bezier(.645,.045,.355,1) infinite;
+}
+.loader-moving.end{
+  opacity: 0;
+  z-index:-1;
+}
+
+
+
+
+/* 사원선택모듈 디자인 */
+.member_select_area {
+	/* width: fit-content; */
+}
+
+.member_select_area ul li {
+	min-height: 23px;
+	box-sizing: border-box;
+	line-height: 23px;
+	cursor: pointer;
+	/* margin-bottom: 5px; */
+	text-align: left;
+	border-radius: 3px;
+}
+
+.member_select_area .plusminusIcon {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.member_select_area .deptname {
+	width: 100%;
+	display: inline-block;
+}
+
+.member_select_area .deptname:hover {
+	background: #e4e4e4;
+}
+
+.memberListAreaByDept {
+	margin-left: 15px;
+	display: none;
+}
+/* 
+.memberListAreaByDept li .memberCheck {
+	vertical-align: text-top;
+	margin-right: 5px;
+}
+ */
+
+.memberListAreaByDept > li:hover {
+	background: #e4e4e4;
+}
+
+.memberListAreaByDept > li {
+	margin: 1px 4px 0px 0px;
+	padding: 0px 5px;	
+}
+
+.memberListAreaByDept > li.on {
+	/* background: #1873ad; */
+	background: #7a7a7a;
+	color: white;	
+}
+
+/* .member_li {
+	margin-left: 20px;
+	cursor: pointer;
+	margin-bottom: 5px;
+	display: flex;
+	justify-content: start;
+	align-items: center;
+}
+
+.member_li img {
+	width: 25px;
+	border-radius: 50%;
+	margin-right: 5px;
+} */

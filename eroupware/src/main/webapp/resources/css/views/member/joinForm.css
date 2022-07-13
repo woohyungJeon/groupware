@@ -1,0 +1,174 @@
+@charset "UTF-8";
+
+/* body {
+	background: #27272e !important;
+} */
+#wrap {
+	border: 0px;
+	/* min-height: 900px;
+    min-width: 1000px; */
+	width: 100%;
+	min-height: 100vh;
+	overflow-x: hidden;
+	/* overflow-y: hidden; */
+	padding: 0 !important;
+	margin: 0 !important;
+	background-image: url(../../../img/loginBackground-image3.jpg);
+	/* z-index: 10000; */
+	background-size: 100% 100%;
+	background-attachment: fixed;
+}
+
+#joinFormWrap {
+	width: 100% !important;
+	margin: 50px 0 0 0 !important;
+	padding: 0 !important;
+	/* height: 100vh !important; */
+	overflow-y: hidden;
+	overflow-x: hidden;
+	/* background-image: url("../../../img/loginBackground-image3.jpg"); */
+	/* background-size: 100% 100%; */
+	/* overflow-y: hidden; */
+	/* background-attachment: fixed; */
+	/* overflow-y: scroll; */
+}
+
+table {
+	width: 100%;
+	margin: 0 auto;
+	border-collapse: collapse;
+	font-size: 15px;
+	color: white;
+}
+
+table tr td {
+	text-align: left;
+	padding: 10px;
+}
+
+.inputMobile1, .inputMobile2, .inputMobile3 {
+	width: 40px;
+}
+
+table tr td input[name=adddetail] {
+	width: calc(100% - 14px);
+}
+
+.status {
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.joinFormArea {
+	width: 600px;
+	height: 800px;
+	/* height: 1400px; */
+	/* background: rgba(0, 0, 0, 0.8); */
+	background: rgba(7, 42, 64, 0.8);
+	margin: 2% auto;
+	border-radius: 7px;
+	position: relative;
+	text-align: center;
+	display: block;
+}
+
+.joinFormArea h3 {
+	color: white;
+	font-size: 40px;
+	margin-top: 40px;
+	display: inline-block;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+
+.joinFormArea .inputLabel {
+	font-size: 15px;
+	color: white;
+	left: 162px;
+}
+
+.joinFormArea .inputText {
+	border-radius: 5px;
+}
+
+.joinButton {
+    background: #2482bd;
+    border: none;
+    color: white;
+    width: 170px;
+    height: 30px;
+    margin-top: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.cancelBtn {
+	position: absolute;
+    right: 15px;
+    bottom: 15px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.postBtn {
+	background: #2482bd;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 90px;
+}
+
+/*
+.joinButton {	
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    background: #727272;
+    color: white;
+    font-size: 19px;
+    line-height: 5%;
+    cursor: pointer;
+}
+
+.joinFormArea a {
+    color: white;
+    text-decoration: none;
+
+}
+
+.joinFormArea .inputgroup {
+   font-size: 15px;
+   margin : 2%;   
+}
+
+
+
+.loginFormArea .inputText {
+    left: 160px;
+    width: 280px;
+    padding: 5px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.joinFormArea .col1 {
+    padding: 10px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+ 
+.joinFormArea .col2 {
+    text-align: left;
+    padding: 5px;
+}
+
+.joinFormArea. num{
+    color: red;
+    }    
+    
+*/

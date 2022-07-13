@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.adminMapper">
+	 
+	<select id="getAdminMemberList" resultType="adminMemberDTO">
+		select m.id, m.name, m.mobile, m.deptno, m.rankno, to_char(hiredate, 'YYYY-MM-DD') as hiredate, d.deptname, r.rankname
+		from ew_member m, ew_department d, ew_rank r where m.enabled = 'N'
+		and m.deptno = d.deptno and m.rankno = r.rankno order by m.hiredate asc
+	</select>
+	
+	<update id="memberApproval" parameterType="String">
+		update ew_member set enabled = 'Y' where id = #{id}
+	</update>
+	
+</mapper>
